@@ -513,6 +513,11 @@ pt-BR:
         year_semester_label: "em"
         class_enrollments: "Inscrições"
         course_class_year_semester: "Disciplina"
+        listed_advisors: "Orientadores"
+        listed_accomplishments: "Realização de Etapas"
+        listed_deferrals: "Prorrogações"
+        listed_scholarships: "Bolsas"
+        listed_class_enrollments: "Inscrições"
       dismissal:
         date: "Data"
         dismissal_reason: "Motivo do Desligamento"
