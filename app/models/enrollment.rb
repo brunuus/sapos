@@ -211,7 +211,7 @@ class Enrollment < ActiveRecord::Base
                 <td>#{scholarship.scholarship_number}</td>
                 <td>#{scholarship.start_date}</td>
                 <td>#{scholarship.end_date}</td>
-                <td>#{scholarship.scholarship_durations.where(:cancel_date => nil).last.end_date}</td>
+                <td>#{scholarship.scholarship_durations.where(:cancel_date => nil).empty? ? "-" : scholarship.scholarship_durations.where(:cancel_date => nil).last.end_date}</td>
                 <td>#{scholarship.obs}</td>
               </tr>"
     end
