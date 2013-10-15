@@ -88,12 +88,12 @@ class Enrollment < ActiveRecord::Base
     body = ""
     count = 0
 
-    body += "<table style=\"border-collapse: collapse\">"
+    body += "<table class=\"listed-records-table\">"
     
-    body += "<thead style=\"color: white; font-size: 12px; background-color: rgb(66, 127, 164)\">
+    body += "<thead>
               <tr>
-                <th style=\"padding-right: 15px\">Nome do Orientador</td>
-                <th style=\"padding-right: 15px\">Matrícula do Orientador</td>
+                <th>Nome do Orientador</td>
+                <th>Matrícula do Orientador</td>
               </tr>
             </thead>"
             
@@ -127,13 +127,13 @@ class Enrollment < ActiveRecord::Base
     body = ""
     count = 0
 
-    body += "<table style=\"border-collapse: collapse\">"
+    body += "<table class=\"listed-records-table\">"
     
-    body += "<thead style=\"color: white; font-size: 12px; background-color: rgb(66, 127, 164)\">
+    body += "<thead>
               <tr>
-                <th style=\"padding-right: 15px\">Etapa</td>
-                <th style=\"padding-right: 15px\">Data de Conclusão</td>
-                <th style=\"padding-right: 15px\">Observação</td>
+                <th>Etapa</td>
+                <th>Data de Conclusão</td>
+                <th>Observação</td>
               </tr>
             </thead>"
             
@@ -150,6 +150,7 @@ class Enrollment < ActiveRecord::Base
               </tr>"
     end
 
+    body += "</tbody>"
     body += "</table>"
     body.html_safe
   end
@@ -160,16 +161,18 @@ class Enrollment < ActiveRecord::Base
     body = ""
     count = 0
 
-    body += "<table style=\"border-collapse: collapse\">"
+    body += "<table class=\"listed-records-table\">"
     
-    body += "<thead style=\"color: white; font-size: 12px; background-color: rgb(66, 127, 164)\">
+    body += "<thead>
               <tr>
-                <th style=\"padding-right: 15px\">Data de Aprovação</td>
-                <th style=\"padding-right: 15px\">Observação</td>
-                <th style=\"padding-right: 15px\">Tipo de Prorrogação</td>
+                <th>Data de Aprovação</td>
+                <th>Observação</td>
+                <th>Tipo de Prorrogação</td>
               </tr>
             </thead>"
-            
+    
+    body += "<tbody class=\"records\">"
+
     self.deferrals.each do |deferral|
       count += 1
       tr_class = count.even? ? "even-record" : ""
@@ -181,6 +184,7 @@ class Enrollment < ActiveRecord::Base
               </tr>"
     end
 
+    body += "</tbody>"
     body += "</table>"
     body.html_safe
   end
@@ -191,17 +195,19 @@ class Enrollment < ActiveRecord::Base
     body = ""
     count = 0
 
-    body += "<table style=\"border-collapse: collapse\">"
+    body += "<table class=\"listed-records-table\">"
     
-    body += "<thead style=\"color: white; font-size: 12px; background-color: rgb(66, 127, 164)\">
+    body += "<thead>
               <tr>
-                <th style=\"padding-right: 15px\">Número da Bolsa</td>
-                <th style=\"padding-right: 15px\">Data de início</td>
-                <th style=\"padding-right: 15px\">Data limite de concessão</td>
-                <th style=\"padding-right: 15px\">Data de encerramento</td>
-                <th style=\"padding-right: 15px\">Observação</td>
+                <th>Número da Bolsa</td>
+                <th>Data de início</td>
+                <th>Data limite de concessão</td>
+                <th>Data de encerramento</td>
+                <th>Observação</td>
               </tr>
             </thead>"
+
+    body += "<tbody class=\"records\">"
             
     self.scholarships.each do |scholarship|
       count += 1
@@ -216,6 +222,7 @@ class Enrollment < ActiveRecord::Base
               </tr>"
     end
 
+    body += "</tbody>"
     body += "</table>"
     body.html_safe
   end
@@ -226,18 +233,20 @@ class Enrollment < ActiveRecord::Base
     body = ""
     count = 0
 
-    body += "<table style=\"border-collapse: collapse\">"
+    body += "<table class=\"listed-records-table\">"
     
-    body += "<thead style=\"color: white; font-size: 12px; background-color: rgb(66, 127, 164)\">
+    body += "<thead>
               <tr>
-                <th style=\"padding-right: 15px\">Turma</td>
-                <th style=\"padding-right: 15px\">Situação</td>
-                <th style=\"padding-right: 15px\">Nota</td>
-                <th style=\"padding-right: 15px\">Reprovado por falta</td>
-                <th style=\"padding-right: 15px\">Observação</td>
+                <th>Turma</td>
+                <th>Situação</td>
+                <th>Nota</td>
+                <th>Reprovado por falta</td>
+                <th>Observação</td>
               </tr>
             </thead>"
             
+    body += "<tbody class=\"records\">"
+
     self.class_enrollments.each do |class_enrollment|
       count += 1
       tr_class = count.even? ? "even-record" : ""
@@ -257,6 +266,7 @@ class Enrollment < ActiveRecord::Base
              </tr>"
     end
 
+    body += "</tbody>"
     body += "</table>"
     body.html_safe
   end

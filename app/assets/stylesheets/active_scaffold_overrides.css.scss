@@ -1128,3 +1128,21 @@ noscript.active-scaffold {
 .as_touch tr.record td {
     padding: 5px 10px;
 }
+
+/* For listed_* attributes
+   ========================== */
+
+.listed-records-table {
+  border-collapse: collapse !important;
+}
+
+.listed-records-table thead {
+  color: white;
+  font-size: 12px;
+  background-color: #427FA4;
+}
+
+.listed-records-table thead tr th {
+  padding-right: 15px;
+}
+
